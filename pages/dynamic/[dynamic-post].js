@@ -1,11 +1,6 @@
 import Layout from '../../components/layout'
 
-
 const DynamicPost = ({data}) => {
-  // const [post, setPost] = useState([])
-  // const router = useRouter()
-  // console.log(data);
-
   return <Layout>
          {data && (<><p>Task: {data.title}</p>
                <p>Task number: {data.id}</p></>)}

@@ -5,8 +5,6 @@ import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 
-
-
 //fetch external API or query data base
 export async function getStaticProps() {
   // Instead of the file system,
@@ -36,7 +34,6 @@ export default function Home({ allPostsData }) {
               <small className={utilStyles.lightText}>
                 October 2, 2020
               </small>
-              
             </li>
             <br />
           <li ><Link href={`/server-side-rendering`}>
@@ -46,7 +43,6 @@ export default function Home({ allPostsData }) {
               <small className={utilStyles.lightText}>
                 October 1, 2020
               </small>
-              
             </li>
             <br />
             <h2>Examples of pages with dynamic routes (static generation):</h2>
