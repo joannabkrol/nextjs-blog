@@ -5,6 +5,8 @@ import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 
+
+
 //fetch external API or query data base
 export async function getStaticProps() {
   // Instead of the file system,
@@ -22,13 +24,23 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      <Head>…</Head>
-      <section className={utilStyles.headingMd}>…</section>
+      <Head>
+        <title> Example Next.js page</title>
+      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
+        <li ><Link href={`/static-generation`}>
+                <a style={{color: "magenta"}}>Simple Static Page</a>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                October 2, 2020
+              </small>
+              
+            </li>
+            <br />
           <li ><Link href={`/server-side-rendering`}>
-                <a style={{color: "magenta"}}>Server Side Rendering</a>
+                <a style={{color: "magenta", fontWeight: "800"}}>Server Side Rendering + Dynamic Routing</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
@@ -37,6 +49,7 @@ export default function Home({ allPostsData }) {
               
             </li>
             <br />
+            <h2>Examples of pages with dynamic routes (static generation):</h2>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
             <Link href={`/posts/${id}`}>

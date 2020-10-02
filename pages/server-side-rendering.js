@@ -1,17 +1,38 @@
 import Layout from '../components/layout'
+import Link from 'next/link'
 //import {useState, useEffect} from 'react';
 
 function Page({ data }) {
     // Render data...
-    return (
+    return (<>
         <Layout>
-            {data.slice(0, 5).map(todo => {
-             return <>
-             <p>Task: {todo.title}</p>
-                 <p>Task number: {todo.id}</p>
-     </>
+            {data.slice(0, 5).map((item, index) => {
+             return <div className="todo" key={index}>
+                      <Link 
+                      href="/dynamic/[dynamic-post]"
+                      as={`/dynamic/${item.id}`} 
+                      >
+                        <a>
+                        <h3 className="title">Task: {item.title}</h3>
+                            
+                        </a>
+                      </Link>
+                      <p>Task number: {item.id}</p>
+                </div>
          })}
         </Layout>
+        <style jsx>
+          {`
+            .todo {
+              display: flex;
+              justify-content: space-between;
+            }
+            .title {
+              width: 70%;
+            }
+          `}
+        </style>
+        </>
     )
   }
   
