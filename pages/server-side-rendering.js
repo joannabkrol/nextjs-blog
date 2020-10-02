@@ -11,12 +11,12 @@ function Page({ data }) {
                       href="/dynamic/[dynamic-post]"
                       as={`/dynamic/${item.id}`} 
                       >
-                        <a>
-                        <h3 className="title">Task: {item.title}</h3>
+                        <a className="title">
+                        <h3>Task: {item.title}</h3>
                             
                         </a>
                       </Link>
-                      <p>Task number: {item.id}</p>
+                      <p className="taskNumber">Task number: {item.id}</p>
                 </div>
          })}
         </Layout>
@@ -27,7 +27,12 @@ function Page({ data }) {
               justify-content: space-between;
             }
             .title {
-              width: 70%;
+              flex: 2;
+            }
+            .taskNumber {
+              flex: 1
+              align-self: center;
+              text-align: end;
             }
           `}
         </style>
